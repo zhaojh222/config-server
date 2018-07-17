@@ -1,2 +1,40 @@
 info:
   profile: test
+
+spring:
+  data:
+    cassandra:
+      keyspace-name: ks1
+      port: 9042
+      username: cassandra
+      password: cassandra
+      contact-points: localhost
+      schema-action: create_if_not_exists
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: customerGroup
+
+server:
+  servlet:
+    context-path: /cck-prod
+  port: 9090
+
+management:
+  endpoint:
+    camelroutes:
+      enabled: true
+      read-only: true
+  info:
+    camel:
+      enabled: true
+
+camel:
+  springboot:
+    name: cck
+  component:
+    servlet:
+      mapping:
+        context-path: /routes/*
+  rest:
+    binding-mode: json
