@@ -1,0 +1,27 @@
+info:
+  profile: default
+
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/healthcheck
+    username: root
+    password: abc123
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: mysql
+server:
+  servlet:
+    context-path: /healthcheck_demo
+  port: 8280
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: info,health
