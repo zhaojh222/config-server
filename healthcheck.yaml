@@ -3,9 +3,9 @@ info:
 
 spring:
   datasource:
-    url: jdbc:mariadb://localhost:3306/healthcheck
     username: root
     password: abc123
+    url: jdbc:mysql://localhost:3306/healthcheck
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     generate-ddl: true
